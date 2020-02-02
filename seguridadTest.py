@@ -11,7 +11,7 @@ class SeguridadTest(unittest.TestCase):
         self.assertEqual(len(self.seguridad.dict), 0)
 
     def test_caso_frontera_email_registro(self):
-        self.assertFalse(self.seguridad.registrarUsuario('a', 'aAa12345', 'aAa12345'))
+        self.assertEqual(self.seguridad.registrarUsuario('a', 'aAa12345', 'aAa12345'), False)
 
 if __name__ == '__main__':
     unittest.main()
