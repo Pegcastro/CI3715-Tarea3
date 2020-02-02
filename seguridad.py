@@ -13,6 +13,9 @@ class Seguridad:
         else:
             return False
 
+    def _verPass(self):
+        pass
+
     def registrarUsuario(self, email, password, password2):        
         return self._verEmail(email)
 
@@ -22,8 +25,6 @@ class Seguridad:
 
 
 
-    def _verPass(self):
-        pass
 
 if __name__ == '__main__':
     pass
