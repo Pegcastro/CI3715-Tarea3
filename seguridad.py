@@ -13,11 +13,11 @@ class Seguridad:
         else:
             return False
 
-    def _verPass(self):
-        pass
+    def _verPass(self, password, password2):
+        return 8 <= len(password) <= 16 and password == password2
 
     def registrarUsuario(self, email, password, password2):        
-        return self._verEmail(email)
+        return self._verEmail(email) and self._verPass(password, password2)
 
     def ingresarUsuario(self, email, password):
         pass

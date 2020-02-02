@@ -19,5 +19,8 @@ class SeguridadTest(unittest.TestCase):
     def test_caso_frontera_pass_registro_1(self):
         self.assertEqual(self.seguridad.registrarUsuario('pagoncastro@gmail.com', 'a', 'a'), False)
 
+    def test_caso_frontera_pass_registro_2(self):
+        self.assertEqual(self.seguridad.registrarUsuario('pagoncastro@gmail.com', 'asdfasdf#', 'sdfasdf#'), False)
+
 if __name__ == '__main__':
     unittest.main()
