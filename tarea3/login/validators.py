@@ -6,6 +6,7 @@ regexEmail = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
 regexPass = ''
 
 def validate_correct_password(value):
+    
     pass
     # if value % 2 != 0:
     #     raise ValidationError(
@@ -14,7 +15,7 @@ def validate_correct_password(value):
     #     )
 
 def validate_correct_email(value):
-    match = re.search(self.regex, email)
+    match = re.search(regex, email)
         if(not match):
             raise ValidationError(
             _('%(value)s is not a valid email'),
