@@ -1,0 +1,26 @@
+<h1>Ingrese su usuario</h1>
+
+{% if error_message %}
+    <p><strong>Por favor ingrese un usuario</strong></p>
+{% endif %}
+
+<form action="{% url 'login:auth' %}" method="get">
+    <label for="email_input">Correo electronico</label>
+    <input
+        type="email"
+        name="email"
+        id="email_input"
+        placeholder="example@example.com"
+    >
+    <br>
+    <label for="password_input">Contrase&ntilde;a</label>
+    <input
+        type="password"
+        name="password"
+        id="password_input"
+    >
+    <br>
+    <input type="submit" value="Iniciar sesion">
+</form>
+
+<a href="{% url 'login:register' %}"><h2>Registrar usuario</h2></a>

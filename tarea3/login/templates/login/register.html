@@ -1,0 +1,32 @@
+<h1>Registre su usuario</h1>
+
+{% if error_message %}
+    <p><strong>Por favor ingrese un usuario</strong></p>
+{% endif %}
+
+<form action="{% url 'login:register_user' %}" method="post">
+    {% csrf_token %}
+    <label for="email_input">Correo electronico</label>
+    <input
+        type="email"
+        name="email"
+        id="email_input"
+        placeholder="example@example.com"
+    >
+    <br>
+    <label for="password_input">Contrase&ntilde;a</label>
+    <input
+        type="password"
+        name="password"
+        id="password_input"
+    >
+    <br>
+    <label for="password_repeat">Repetir Contrase&ntilde;a</label>
+    <input
+        type="password"
+        name="password_2"
+        id="password_repeat"
+    >
+    <br>
+    <input type="submit" value="Registrar Usuario">
+</form>
