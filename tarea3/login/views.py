@@ -55,7 +55,7 @@ def register_user(request):
         password = request.POST['password']
         password_2 = request.POST['password_2']
         # 1. Hacer las validaciones
-
+        userExists, data = registrarUsuario(email, password, password_2)
         # 2. Ingresar los datos en la base
 
     except KeyError:
@@ -64,8 +64,12 @@ def register_user(request):
         return render(request, 'login/register.html', context)
 
     else:
-        template = loader.get_template('login/home.html')
-        context = {
-            'email': email,
-        }
-        return HttpResponse(template.render(context, request))
+        if userExists:
+            template = loader.get_template('login/home.html')
+            context = {
+                'email': data,
+            }
+            return HttpResponse(template.render(context, request))
+        else:
+            context = { 'error_message': "User not registered" }
+            return render(request, 'login/register.html', context)

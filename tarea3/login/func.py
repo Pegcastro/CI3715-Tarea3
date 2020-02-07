@@ -6,9 +6,9 @@ def registrarUsuario(email, password, password2):
         validate_correct_email(email)
         validate_correct_password(password)
         validate_same_password(password1, password2)
-    except:
-        return False
-    return True
+    except ValidationError:
+        return False, ValidationError
+    return True, email
 
 def ingresarUsuario(email, password):
     try:
