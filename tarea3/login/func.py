@@ -14,6 +14,6 @@ def ingresarUsuario(email, password):
     try:
         validate_correct_email(email)
         validate_correct_password(password)
-    except:
-        return False
-    return True
+    except ValidationError:
+        return False, ValidationError
+    return True, email

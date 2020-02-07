@@ -15,12 +15,12 @@ def validate_correct_password(value):
     #     )
 
 def validate_correct_email(value):
-    match = re.search(regex, email)
-        if(not match):
-            raise ValidationError(
-            _('%(value)s is not a valid email'),
-            params={'value': value},
-            )
+    match = re.search(regexEmail, value)
+    if(not match):
+        raise ValidationError(
+        _('%(value)s is not a valid email'),
+        params={'value': value},
+        )
 
     # try:
     #     RegexValidator(regex=r'^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$')

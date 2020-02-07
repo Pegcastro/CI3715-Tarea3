@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Seguridad
+from .func import *
 
 # Create your views here.
 def index(request):
@@ -14,7 +15,7 @@ def auth(request):
         email = request.GET['email']
         password = request.GET['password']
         # 1. Hacer las validaciones aqui
-
+        userExists, data = ingresarUsuario(email, password)
         # 2. Buscar en la base de datos al usuario
 
         # 3. Verificar su clave
@@ -23,11 +24,15 @@ def auth(request):
         context = { 'error_message': "No email/password provided" }
         return render(request, 'login/login.html', context)
     else:
-        template = loader.get_template('login/home.html')
-        context = {
-            'email': email,
-        }
-        return HttpResponse(template.render(context, request))
+        if userExists:
+            template = loader.get_template('login/home.html')
+            context = {
+                'email': data,
+            }
+            return HttpResponse(template.render(context, request))
+        else:
+            context = { 'error_message': "User not registered" }
+            return render(request, 'login/login.html', context)
 
 
 def home(request, email):
