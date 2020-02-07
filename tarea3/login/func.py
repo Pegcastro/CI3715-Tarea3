@@ -5,7 +5,7 @@ def registrarUsuario(email, password, password2):
     try:
         validate_correct_email(email)
         validate_correct_password(password)
-        validate_correct_password(password2)
+        validate_same_password(password1, password2)
     except:
         return False
     return True
