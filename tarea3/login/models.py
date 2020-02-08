@@ -4,7 +4,7 @@ from .validators import validate_correct_password, validate_correct_email
 
 # Create your models here.
 class Seguridad(models.Model):
-    email = models.CharField(max_length=120, validators=[validate_correct_email])
+    email = models.CharField(max_length=120, unique=True, validators=[validate_correct_email])
     password = models.CharField(max_length=16, validators=[validate_correct_password])
 
     def __str__(self):

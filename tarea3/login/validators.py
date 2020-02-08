@@ -7,12 +7,12 @@ regexPass = '''[0-9]*[a-z]+[0-9]*[a-z]+[0-9]*[A-Z]+[0-9]+|[0-9]*[a-z]+[0-9]*[A-Z
 
 def validate_correct_password(value):
     match = re.search(regexPass, value)
-    print('veo la contra')
+    # print('veo la contra')
     if match:
-        print('No es none')
+        # print('No es none')
         rMatch = match
     else:
-        print('Es none, cambiado')
+        # print('Es none, cambiado')
         rMatch = False
     if(not rMatch or not (len(value) >=8 and len(value) <= 16)):
         raise ValidationError(

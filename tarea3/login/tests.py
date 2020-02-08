@@ -8,4 +8,4 @@ class SeguridadModelTests(TestCase):
         self.assertIs(registrarUsuario('a', 'aAa12345', 'aAa12345')[0], False)
 
     def test_interno_ingreso_1(self):
-        self.assertIs(ingresarUsuario('almiavicas@gmail.com', 'Cont123')[0], True)
+        self.assertIs(ingresarUsuario('almiavicas@gmail.com', 'Cont1234')[0], True)

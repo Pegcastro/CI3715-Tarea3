@@ -31,7 +31,7 @@ def auth(request):
             }
             return HttpResponse(template.render(context, request))
         else:
-            context = { 'error_message': "User not registered" }
+            context = { 'error_message': data }
             return render(request, 'login/login.html', context)
 
 
@@ -71,5 +71,5 @@ def register_user(request):
             }
             return HttpResponse(template.render(context, request))
         else:
-            context = { 'error_message': "User not registered" }
+            context = { 'error_message': data }
             return render(request, 'login/register.html', context)

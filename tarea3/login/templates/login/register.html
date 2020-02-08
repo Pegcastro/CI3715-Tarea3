@@ -1,7 +1,7 @@
 <h1>Registre su usuario</h1>
 
 {% if error_message %}
-    <p><strong>Por favor ingrese un usuario</strong></p>
+    <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
 <form action="{% url 'login:register_user' %}" method="post">
